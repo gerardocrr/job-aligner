@@ -1,7 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { JobSearch } from "./components/JobSearch";
+import { Description } from "./components/Description";
+
 function App() {
   return (
     <>
-      <h1>Job Aligner</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<JobSearch />}></Route>
+          <Route path="/description/:id" element={<Description />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
