@@ -9,6 +9,8 @@ export function Description() {
     accept: {
       "application/pdf": [".pdf"],
     },
+    maxFiles: 1,
+    maxSize: 2000000,
   });
   const files = acceptedFiles.map((file) => (
     <li key={file.path}>
@@ -51,7 +53,7 @@ export function Description() {
       <div className="flex flex-col bg-gray-400 rounded-lg p-2">
         <h1>CV</h1>
         <div className="flex items-center justify-center w-full h-full">
-          <div className="h-full w-full">
+          <div className="h-full w-full overflow-hidden">
             <div
               {...getRootProps({
                 className:
