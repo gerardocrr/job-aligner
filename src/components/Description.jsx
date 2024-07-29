@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useDropzone } from "react-dropzone";
 import { Dropzone } from "./Dropzone";
 
 export function Description() {
