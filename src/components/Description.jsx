@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Dropzone } from "./Dropzone";
-import { getFeedback } from "../lib/ai-response";
+import { FeedbackAI } from "./FeedbackAI";
 
 export function Description() {
   const [data, setData] = useState({});
-  const [summary, setSummary] = useState("");
   const params = useParams();
 
   useEffect(() => {
@@ -19,11 +18,6 @@ export function Description() {
     };
     fetchDatos();
   }, []);
-
-  const handleButtonAI = async () => {
-    const summary = await getFeedback();
-    setSummary(summary);
-  };
 
   return (
     <div className="grid grid-cols-3 gap-8 mx-auto p-5 h-screen">
@@ -51,11 +45,7 @@ export function Description() {
         <Dropzone />
       </div>
       <div className="flex flex-col bg-gray-400 rounded-lg p-2">
-        <h1>AI </h1>
-        <button onClick={handleButtonAI} className="bg-white p-2 rounded-md">
-          AI
-        </button>
-        <p>{summary}</p>
+        <FeedbackAI />
       </div>
     </div>
   );
