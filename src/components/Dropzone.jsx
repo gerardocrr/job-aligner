@@ -58,6 +58,7 @@ export function Dropzone({ file, setFile, text, setText }) {
 
   return (
     <div className="h-full w-full overflow-hidden">
+      <h1>Dropzone</h1>
       <div
         {...getRootProps({
           className: `${
