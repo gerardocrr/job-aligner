@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getFeedback } from "../lib/ai-response";
 
-export function FeedbackAI() {
+export function FeedbackAI({ text }) {
   const [feedback, setFeedback] = useState("");
   const handleGetFeedback = async () => {
     const summary = await getFeedback();
@@ -14,6 +14,7 @@ export function FeedbackAI() {
         AI
       </button>
       <p>{feedback}</p>
+      <p>{text}</p>
     </div>
   );
 }
