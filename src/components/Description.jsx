@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export function Description() {
-  const [data, setData] = useState({});
+export function Description({ dataJob, setDataJob }) {
   const params = useParams();
 
   useEffect(() => {
@@ -11,8 +10,7 @@ export function Description() {
         `https://api-linkedin.vercel.app/api/jobs/${params.id}`
       );
       const data = await response.json();
-      console.log(data);
-      setData(data);
+      setDataJob(data);
     };
     fetchDatos();
   }, []);
@@ -20,18 +18,18 @@ export function Description() {
   return (
     <div>
       <h1>Description</h1>
-      {data.title ? (
+      {dataJob.title ? (
         <div>
-          <h1>{data.title}</h1>
-          <p>{data.company}</p>
-          <p>{data.location}</p>
+          <h1>{dataJob.title}</h1>
+          <p>{dataJob.company}</p>
+          <p>{dataJob.location}</p>
           <br />
-          <p>{data.jobCriteria.employmentType}</p>
-          <p>{data.jobCriteria.industries}</p>
-          <p>{data.jobCriteria.jobFunction}</p>
-          <p>{data.jobCriteria.seniorityLevel}</p>
+          <p>{dataJob.jobCriteria.employmentType}</p>
+          <p>{dataJob.jobCriteria.industries}</p>
+          <p>{dataJob.jobCriteria.jobFunction}</p>
+          <p>{dataJob.jobCriteria.seniorityLevel}</p>
           <br />
-          <p>{data.description}</p>
+          <p>{dataJob.description}</p>
         </div>
       ) : (
         <p>Loading...</p>
