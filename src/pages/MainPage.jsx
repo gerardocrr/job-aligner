@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Dropzone } from "./Dropzone";
-import { FeedbackAI } from "./FeedbackAI";
-import { Description } from "./Description";
+import { Dropzone } from "../components/Dropzone";
+import { FeedbackAI } from "../components/FeedbackAI";
+import { Description } from "../components/Description";
 
 export function MainPage() {
   const [file, setFile] = useState();
