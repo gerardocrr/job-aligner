@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Dropzone } from "../components/Dropzone";
 import { FeedbackAI } from "../components/FeedbackAI";
-import { Description } from "../components/Description";
+import { DescriptionJob } from "../components/DescriptionJob";
 
 export function MainPage() {
   const [dataJob, setDataJob] = useState({});
@@ -11,7 +11,7 @@ export function MainPage() {
   return (
     <div className="grid grid-cols-3 gap-8 mx-auto p-5 h-screen">
       <div className="flex flex-col bg-gray-400 rounded-lg p-2 overflow-y-scroll">
-        <Description dataJob={dataJob} setDataJob={setDataJob} />
+        <DescriptionJob dataJob={dataJob} setDataJob={setDataJob} />
       </div>
       <div className="flex flex-col bg-gray-400 rounded-lg p-2">
         <Dropzone file={file} setFile={setFile} text={text} setText={setText} />
