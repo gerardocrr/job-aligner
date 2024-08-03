@@ -1,26 +1,11 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
 import { Dropzone } from "./Dropzone";
 import { FeedbackAI } from "./FeedbackAI";
 import { Description } from "./Description";
 
 export function MainPage() {
-  const [data, setData] = useState({});
   const [file, setFile] = useState();
   const [text, setText] = useState();
-  const params = useParams();
-
-  useEffect(() => {
-    const fetchDatos = async () => {
-      const response = await fetch(
-        `https://api-linkedin.vercel.app/api/jobs/${params.id}`
-      );
-      const data = await response.json();
-      console.log(data);
-      setData(data);
-    };
-    fetchDatos();
-  }, []);
 
   return (
     <div className="grid grid-cols-3 gap-8 mx-auto p-5 h-screen">
