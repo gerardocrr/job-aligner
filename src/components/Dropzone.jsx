@@ -9,12 +9,14 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url
 ).toString();
 
-export function Dropzone() {
-  const [file, setFile] = useState();
+export function Dropzone({ file, setFile, text, setText }) {
+  //const [file, setFile] = useState();
+  //const [text, setText] = useState();
   const [isVisible, setIsVisible] = useState(true);
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles[0]) {
       setFile(acceptedFiles[0]);
+      extractTextFromPDF(acceptedFiles[0]);
       setIsVisible(false);
     }
   }, []);
@@ -29,7 +31,30 @@ export function Dropzone() {
   const handleCleanInput = () => {
     acceptedFiles.shift();
     setIsVisible(true);
+    setText("");
   };
+
+  async function extractTextFromPDF(file) {
+    const reader = new FileReader();
+
+    reader.onload = async function () {
+      const typedarray = new Uint8Array(this.result);
+
+      const pdf = await pdfjs.getDocument(typedarray).promise;
+      const maxPages = pdf.numPages;
+      let textContent = "";
+
+      for (let i = 1; i <= maxPages; i++) {
+        const page = await pdf.getPage(i);
+        const textContentObj = await page.getTextContent();
+        const pageText = textContentObj.items.map((item) => item.str).join(" ");
+        textContent += `${pageText} \n`;
+      }
+
+      setText(textContent);
+    };
+    reader.readAsArrayBuffer(file);
+  }
 
   return (
     <div className="h-full w-full overflow-hidden">
