@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { JobSearch } from "./components/JobSearch";
-import { Description } from "./components/Description";
+import { MainPage } from "./components/MainPage";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<JobSearch />}></Route>
-          <Route path="/description/:id" element={<Description />}></Route>
+          <Route path="/description/:id" element={<MainPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
