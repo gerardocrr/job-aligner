@@ -9,9 +9,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url
 ).toString();
 
-export function Dropzone({ file, setFile, text, setText }) {
-  //const [file, setFile] = useState();
-  //const [text, setText] = useState();
+export function Dropzone({ file, setFile, setDataCV }) {
   const [isVisible, setIsVisible] = useState(true);
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles[0]) {
@@ -31,7 +29,7 @@ export function Dropzone({ file, setFile, text, setText }) {
   const handleCleanInput = () => {
     acceptedFiles.shift();
     setIsVisible(true);
-    setText("");
+    setDataCV("");
   };
 
   async function extractTextFromPDF(file) {
@@ -51,7 +49,7 @@ export function Dropzone({ file, setFile, text, setText }) {
         textContent += `${pageText} \n`;
       }
 
-      setText(textContent);
+      setDataCV(textContent);
     };
     reader.readAsArrayBuffer(file);
   }

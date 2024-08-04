@@ -16,12 +16,14 @@ export async function getFeedback(dataCV, dataJob) {
   Descripción del trabajo:
   ${dataJob}
 
-  Tu respuesta debe incluir:
+  Tu respuesta debe incluir solo los siguientes puntos:
 
   1. Un análisis de la compatibilidad del candidato con los requisitos del trabajo.
   2. Las fortalezas del candidato en relación al puesto.
   3. Las áreas donde el candidato podría mejorar o adquirir más habilidades.
-  4. Consejos específicos para mejorar el CV del candidato en función de la descripción del trabajo.`;
+  4. Consejos específicos para mejorar el CV del candidato en función de la descripción del trabajo.
+  
+  Proporciona la información sin encabezados ni enumeraciones, solo separalo por parrafos y que cada punto tenga un maximo de 50 palabras.`;
 
   const { text } = await generateText({
     model: perplexity("llama-3-sonar-large-32k-online"),

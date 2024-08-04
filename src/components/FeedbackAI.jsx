@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { getFeedback } from "../lib/ai-response";
 
-export function FeedbackAI({ text }) {
+export function FeedbackAI({ dataCV, dataJob }) {
   const [feedback, setFeedback] = useState("");
   const handleGetFeedback = async () => {
-    const summary = await getFeedback();
+    const summary = await getFeedback(dataCV, dataJob);
     setFeedback(summary);
+    console.log(summary);
   };
   return (
     <div>
@@ -14,7 +15,6 @@ export function FeedbackAI({ text }) {
         AI
       </button>
       <p>{feedback}</p>
-      <p>{text}</p>
     </div>
   );
 }
