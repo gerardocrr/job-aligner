@@ -29,7 +29,7 @@ export function JobSearch() {
 
   return (
     <div className="flex flex-col h-svh justify-between container mx-auto">
-      <header className="flex justify-between mt-2">
+      <header className="flex justify-between mt-2 m-2">
         <div className="">JobAligner</div>
         <div>
           <a href="https://github.com/gerardocrr/job-aligner" target="_blank">
