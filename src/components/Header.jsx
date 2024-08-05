@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom";
+
 export function Header() {
   return (
     <header className="flex justify-between mt-2 m-2">
-      <div className="">JobAligner</div>
+      <Link className="flex" to="/">
+        <img src="/job-aligner.png" alt="logo" width={"30px"} />
+        <p className="font-bold text-xl mx-2">JobAligner</p>
+      </Link>
       <div>
         <a href="https://github.com/gerardocrr/job-aligner" target="_blank">
           <svg
