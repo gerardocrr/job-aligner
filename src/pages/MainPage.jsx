@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Dropzone } from "../components/Dropzone";
 import { FeedbackAI } from "../components/FeedbackAI";
 import { DescriptionJob } from "../components/DescriptionJob";
+import { Header } from "../components/Header";
 
 export function MainPage() {
   const [dataJob, setDataJob] = useState({});
@@ -12,6 +13,9 @@ export function MainPage() {
 
   return (
     <div className="grid grid-cols-3 gap-8 mx-auto p-5 h-screen">
+      <div className="col-span-3 h-5">
+        <Header />
+      </div>
       <div className="flex flex-col bg-gray-400 rounded-lg p-2 overflow-y-scroll">
         <DescriptionJob dataJob={dataJob} setDataJob={setDataJob} />
       </div>
