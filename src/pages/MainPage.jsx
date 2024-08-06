@@ -4,6 +4,7 @@ import { Dropzone } from "../components/Dropzone";
 import { FeedbackAI } from "../components/FeedbackAI";
 import { DescriptionJob } from "../components/DescriptionJob";
 import { Header } from "../components/Header";
+import { toast } from "sonner";
 
 export function MainPage() {
   const params = useParams();
@@ -22,6 +23,11 @@ export function MainPage() {
       );
       const data = await response.json();
       setDataJob(data);
+      if (!dataJob.title) {
+        toast.error(
+          "Ha ocurrido un error al cargar los datos, vuelve a intentarlo."
+        );
+      }
       setIsLoading(false);
     };
     fetchDatos();
