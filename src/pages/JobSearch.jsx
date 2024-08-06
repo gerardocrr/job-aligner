@@ -10,18 +10,22 @@ export function JobSearch() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const parsedUrl = new URL(url);
-    const currentJobId = parsedUrl.searchParams.get("currentJobId");
-    if (currentJobId == null) {
-      const match = url.match(/\/jobs\/view\/(\d+)/);
-      if (match) {
-        const jobId = match[1];
-        navigate(`/description/${jobId}`);
+    try {
+      const parsedUrl = new URL(url);
+      const currentJobId = parsedUrl.searchParams.get("currentJobId");
+      if (currentJobId == null) {
+        const match = url.match(/\/jobs\/view\/(\d+)/);
+        if (match) {
+          const jobId = match[1];
+          navigate(`/description/${jobId}`);
+        } else {
+          toast.error("Verifica que la URL sea correcta.");
+        }
       } else {
-        toast.error("Verifica que la URL sea correcta.");
+        navigate(`/description/${currentJobId}`);
       }
-    } else {
-      navigate(`/description/${currentJobId}`);
+    } catch (error) {
+      toast.error("Verifica que la URL sea correcta.");
     }
   };
 
