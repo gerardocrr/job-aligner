@@ -11,6 +11,7 @@ export function MainPage() {
   const [dataJob, setDataJob] = useState({});
   const [file, setFile] = useState();
   const [dataCV, setDataCV] = useState();
+  const [feedback, setFeedback] = useState([]);
   const dataJobText = `Title: ${dataJob.title}. Seniority level: ${dataJob.jobCriteria?.seniorityLevel}. Employment type: ${dataJob.jobCriteria?.employmentType}. Job function: ${dataJob.jobCriteria?.jobFunction}. Industries: ${dataJob.jobCriteria?.industries}. Description: ${dataJob.description}.`;
 
   useEffect(() => {
@@ -39,10 +40,20 @@ export function MainPage() {
         <DescriptionJob dataJob={dataJob} setDataJob={setDataJob} />
       </div>
       <div className="flex flex-col bg-blue-400 bg-opacity-40 rounded-lg p-2 overflow-y-scroll shadow-md shadow-gray-400">
-        <Dropzone file={file} setFile={setFile} setDataCV={setDataCV} />
+        <Dropzone
+          file={file}
+          setFile={setFile}
+          setDataCV={setDataCV}
+          setFeedback={setFeedback}
+        />
       </div>
       <div className="flex flex-col bg-blue-400 bg-opacity-40 rounded-lg p-2 overflow-y-scroll shadow-md shadow-gray-400">
-        <FeedbackAI dataCV={dataCV} dataJob={dataJobText} />
+        <FeedbackAI
+          dataCV={dataCV}
+          dataJob={dataJobText}
+          feedback={feedback}
+          setFeedback={setFeedback}
+        />
       </div>
     </div>
   ) : (
