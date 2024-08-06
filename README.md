@@ -6,6 +6,9 @@ A partir de este análisis, la IA proporciona un feedback detallado sobre la ade
 
 Esta plataforma no solo ahorra tiempo a los candidatos al ofrecerles una evaluación preliminar de su idoneidad para el puesto, sino que también ayuda a identificar áreas de mejora en su perfil profesional. Por otro lado, brinda a las empresas una herramienta valiosa para filtrar candidatos potenciales, mejorando así la eficiencia del proceso de selección.
 
+## URL
+https://job-aligner-ai.vercel.app/
+
 ## Imagenes
 ![913_1x_shots_so](https://github.com/user-attachments/assets/a9f84ffb-24a5-4c28-aff8-4720d1007da8)
 ![79_1x_shots_so](https://github.com/user-attachments/assets/54c03864-a699-4ca8-ab5c-0ffc4e74f312)
