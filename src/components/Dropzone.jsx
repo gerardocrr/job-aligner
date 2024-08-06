@@ -9,7 +9,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url
 ).toString();
 
-export function Dropzone({ file, setFile, setDataCV }) {
+export function Dropzone({ file, setFile, setDataCV, setFeedback }) {
   const [isVisible, setIsVisible] = useState(true);
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles[0]) {
@@ -30,6 +30,7 @@ export function Dropzone({ file, setFile, setDataCV }) {
     acceptedFiles.shift();
     setIsVisible(true);
     setDataCV("");
+    setFeedback([]);
   };
 
   async function extractTextFromPDF(file) {
@@ -55,8 +56,8 @@ export function Dropzone({ file, setFile, setDataCV }) {
   }
 
   return (
-    <div className="h-full w-full overflow-hidden">
-      <h1>Dropzone</h1>
+    <div className={`${isVisible ? "overflow-hidden" : ""} h-full w-full`}>
+      <h1 className="font-bold mb-5">Suba su CV</h1>
       <div
         {...getRootProps({
           className: `${
@@ -83,13 +84,20 @@ export function Dropzone({ file, setFile, setDataCV }) {
             />
           </svg>
           <p className="mb-2 text-sm text-gray-500">
-            <span className="font-semibold">Click to upload</span> or drag and
-            drop
+            <span className="font-semibold">Click para subir</span> o arrastra y
+            suelta
           </p>
-          <p className="text-xs text-gray-500">
-            SVG, PNG, JPG or GIF (MAX. 800x400px)
-          </p>
+          <p className="text-xs text-gray-500">SOLO PDF (MAX. 2MB)</p>
         </div>
+      </div>
+      <div className="mt-2 flex justify-between">
+        <p className="p-2">{acceptedFiles[0]?.path}</p>
+        <button
+          className="text-red-600 p-2 rounded-md"
+          onClick={handleCleanInput}
+        >
+          Limpiar
+        </button>
       </div>
       <div
         className={`${
@@ -99,12 +107,6 @@ export function Dropzone({ file, setFile, setDataCV }) {
         <Document file={file}>
           <Page scale={0.7} pageNumber={1} />
         </Document>
-      </div>
-      <div className="mt-2 flex justify-between">
-        <p className="p-2">{acceptedFiles[0]?.path}</p>
-        <button className="bg-white p-2 rounded-md" onClick={handleCleanInput}>
-          Limpiar
-        </button>
       </div>
     </div>
   );
