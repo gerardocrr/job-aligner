@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
+import { Toaster, toast } from "sonner";
 
 export function JobSearch() {
   const [url, setUrl] = useState("");
@@ -17,7 +18,7 @@ export function JobSearch() {
         const jobId = match[1];
         navigate(`/description/${jobId}`);
       } else {
-        alert("Verifica que tu url sea correcta.");
+        toast.error("Verifica que la URL sea correcta.");
       }
     } else {
       navigate(`/description/${currentJobId}`);
@@ -30,6 +31,7 @@ export function JobSearch() {
 
   return (
     <div className="flex flex-col h-svh justify-between container mx-auto">
+      <Toaster richColors position="top-right" />
       <Header />
       <main className="mb-auto h-96 flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-8">URL Linkedin Job</h1>
