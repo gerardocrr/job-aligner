@@ -23,15 +23,23 @@ export function MainPage() {
       );
       const data = await response.json();
       setDataJob(data);
+      setIsLoading(false);
+    };
+    fetchDatos();
+  }, [params.id]);
+
+  useEffect(() => {
+    const verifyData = () => {
       if (!dataJob.title) {
         toast.error(
           "Ha ocurrido un error al cargar los datos, vuelve a intentarlo."
         );
+      } else {
+        toast.success("Datos cargados correctamente.");
       }
-      setIsLoading(false);
     };
-    fetchDatos();
-  }, []);
+    verifyData();
+  }, [isLoading]);
 
   return isLoading ? (
     <div className="flex items-center justify-center h-svh">

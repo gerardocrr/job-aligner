@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 
 export function JobSearch() {
   const [url, setUrl] = useState("");
@@ -35,10 +35,11 @@ export function JobSearch() {
 
   return (
     <div className="flex flex-col h-svh justify-between container mx-auto">
-      <Toaster richColors position="top-right" />
       <Header />
       <main className="mb-auto h-96 flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold mb-8">URL Linkedin Job</h1>
+        <h1 className="text-3xl font-bold mb-8">
+          Ingresa la URL del empleo de linkedin
+        </h1>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col items-center justify-center w-full max-w-md px-4 md:px-0 space-y-4"
