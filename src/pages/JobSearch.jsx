@@ -57,7 +57,7 @@ export function JobSearch() {
           💻 Develop by{" "}
           <strong>
             <a href="https://github.com/gerardocrr" target="_blank">
-              Gerado Cruz
+              Gerardo Cruz
             </a>
           </strong>
         </p>
