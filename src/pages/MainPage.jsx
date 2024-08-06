@@ -35,13 +35,13 @@ export function MainPage() {
       <div className="col-span-3 h-5">
         <Header />
       </div>
-      <div className="flex flex-col bg-blue-400 bg-opacity-40 rounded-lg p-2 overflow-y-scroll">
+      <div className="flex flex-col bg-blue-400 bg-opacity-40 rounded-lg p-2 overflow-y-scroll shadow-md shadow-gray-400">
         <DescriptionJob dataJob={dataJob} setDataJob={setDataJob} />
       </div>
-      <div className="flex flex-col bg-blue-400 bg-opacity-40 rounded-lg p-2 overflow-y-scroll">
+      <div className="flex flex-col bg-blue-400 bg-opacity-40 rounded-lg p-2 overflow-y-scroll shadow-md shadow-gray-400">
         <Dropzone file={file} setFile={setFile} setDataCV={setDataCV} />
       </div>
-      <div className="flex flex-col bg-blue-400 bg-opacity-40 rounded-lg p-2 overflow-y-scroll">
+      <div className="flex flex-col bg-blue-400 bg-opacity-40 rounded-lg p-2 overflow-y-scroll shadow-md shadow-gray-400">
         <FeedbackAI dataCV={dataCV} dataJob={dataJobText} />
       </div>
     </div>
