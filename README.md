@@ -1,6 +1,6 @@
 # JobAligner
 
-JobAligner es un proyecto creado para la [hackaton de vercel y midudev](https://github.com/midudev/hackaton-vercel-2024), este proyecto es una innovadora solución web diseñada para facilitar y optimizar el proceso de búsqueda de empleo, este proyecto permite a los usuarios compartir la URL de una vacante de trabajo publicada en LinkedIn, subir su currículum vitae (CV) y utilizando inteligencia artificial con el [sdk de vercel ai](https://sdk.vercel.ai/docs/introduction), la plataforma analiza tanto el CV del usuario como la descripción del puesto de trabajo.
+JobAligner es un proyecto creado como una innovadora solución web diseñada para facilitar y optimizar el proceso de búsqueda de empleo, este proyecto permite a los usuarios compartir la URL de una vacante de trabajo publicada en LinkedIn, subir su currículum vitae (CV) y utilizando inteligencia artificial con el [sdk de vercel ai](https://sdk.vercel.ai/docs/introduction), la plataforma analiza tanto el CV del usuario como la descripción del puesto de trabajo.
 
 A partir de este análisis, la IA proporciona un feedback detallado sobre la adecuación del candidato para la vacante en cuestión. Además, ofrece sugerencias de mejora para aumentar las posibilidades de éxito en futuras postulaciones. Entre los aspectos evaluados se incluyen las habilidades requeridas, la experiencia relevante, y otros criterios clave establecidos por los empleadores.
 
