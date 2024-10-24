@@ -61,7 +61,7 @@ export function JobSearch() {
       </main>
       <footer className="h-16 flex justify-center items-center text-lg">
         <p>
-          💻 Develop by{" "}
+          💻 Developed by{" "}
           <strong>
             <a href="https://github.com/gerardocrr" target="_blank">
               Gerardo Cruz
