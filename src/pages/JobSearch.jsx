@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Header } from "../components/Header";
 import { toast } from "sonner";
 
 export function JobSearch() {
@@ -34,9 +33,8 @@ export function JobSearch() {
   };
 
   return (
-    <div className="flex flex-col h-svh justify-between container mx-auto">
-      <Header />
-      <main className="mb-auto h-96 flex flex-col items-center justify-center">
+    <div className="flex flex-col h-96 justify-between container mx-auto">
+      <main className="mb-auto flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-8">
           Ingresa la URL del empleo de linkedin
         </h1>
@@ -59,16 +57,6 @@ export function JobSearch() {
           </button>
         </form>
       </main>
-      <footer className="h-16 flex justify-center items-center text-lg">
-        <p>
-          💻 Developed by{" "}
-          <strong>
-            <a href="https://github.com/gerardocrr" target="_blank">
-              Gerardo Cruz
-            </a>
-          </strong>
-        </p>
-      </footer>
     </div>
   );
 }
