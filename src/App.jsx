@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { JobSearch } from "./pages/JobSearch";
 import { MainPage } from "./pages/MainPage";
 import { Toaster } from "sonner";
+import { Layout } from "./components/Layout";
 import "./App.css";
 
 function App() {
@@ -12,10 +13,12 @@ function App() {
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div>
       </div>
       <BrowserRouter>
-        <Routes>
-          <Route index element={<JobSearch />}></Route>
-          <Route path="/description/:id" element={<MainPage />}></Route>
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route index element={<JobSearch />}></Route>
+            <Route path="/description/:id" element={<MainPage />}></Route>
+          </Routes>
+        </Layout>
       </BrowserRouter>
     </>
   );
