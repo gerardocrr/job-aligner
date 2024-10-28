@@ -17,7 +17,7 @@ export function MainPage() {
   const [isVisibleDetails, setIsVisibleDetails] = useState(true);
   const [isVisibleCV, setIsVisibleCV] = useState(false);
   const [isVisibleFeedback, setIsVisibleFeedback] = useState(false);
-  const dataJobText = `Title: ${dataJobs.data.title}. Description: ${dataJobs.data.description}.`;
+  const dataJobText = `Title: ${dataJob.data.title}. Description: ${dataJob.data.description}.`;
 
   useEffect(() => {
     const fetchData = async () => {
