@@ -17,7 +17,6 @@ export function MainPage() {
   const [isVisibleDetails, setIsVisibleDetails] = useState(true);
   const [isVisibleCV, setIsVisibleCV] = useState(false);
   const [isVisibleFeedback, setIsVisibleFeedback] = useState(false);
-  const dataJobText = `Title: ${dataJob.data.title}. Description: ${dataJob.data.description}.`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +39,7 @@ export function MainPage() {
   }, []);
 
   const handleFetchFeedback = async () => {
+    const dataJobText = `Title: ${dataJob.data.title}. Description: ${dataJob.data.description}.`;
     const response = await getFeedback(dataCV, dataJobText);
     const partes = response.split("\n\n");
     setFeedback(partes);
