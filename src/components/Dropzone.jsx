@@ -56,57 +56,59 @@ export function Dropzone({ file, setFile, setDataCV, setFeedback }) {
   }
 
   return (
-    <div className={`${isVisible ? "overflow-hidden" : ""} h-full w-full`}>
+    <div className="">
       <h1 className="font-bold mb-5">Suba su CV</h1>
-      <div
-        {...getRootProps({
-          className: `${
-            isVisible ? "h-full" : "hidden"
-          } flex items-center justify-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100`,
-        })}
-      >
-        <input {...getInputProps()} />
-
-        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-          <svg
-            className="w-8 h-8 mb-4 text-gray-500"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 20 16"
+      <div className="grid grid-cols-2">
+        <div>
+          <div className="flex justify-between">
+            <p className="p-2">{acceptedFiles[0]?.path}</p>
+            <button
+              className="text-red-600 hover:underline"
+              onClick={handleCleanInput}
+            >
+              Limpiar
+            </button>
+          </div>
+          <div
+            {...getRootProps({
+              className:
+                "h-full flex items-center justify-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100",
+            })}
           >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-            />
-          </svg>
-          <p className="mb-2 text-sm text-gray-500">
-            <span className="font-semibold">Click para subir</span> o arrastra y
-            suelta
-          </p>
-          <p className="text-xs text-gray-500">SOLO PDF (MAX. 2MB)</p>
+            <input {...getInputProps()} />
+            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+              <svg
+                className="w-8 h-8 mb-4 text-gray-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 16"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                />
+              </svg>
+              <p className="mb-2 text-sm text-gray-500">
+                <span className="font-semibold">Click para subir</span> o
+                arrastra y suelta
+              </p>
+              <p className="text-xs text-gray-500">SOLO PDF (MAX. 2MB)</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="mt-2 flex justify-between">
-        <p className="p-2">{acceptedFiles[0]?.path}</p>
-        <button
-          className="text-red-600 p-2 rounded-md"
-          onClick={handleCleanInput}
+        <div
+          className={`${
+            isVisible ? "hidden" : "block"
+          } flex justify-center items-center rounded-md`}
         >
-          Limpiar
-        </button>
-      </div>
-      <div
-        className={`${
-          isVisible ? "hidden" : "block"
-        } flex justify-center items-center rounded-md`}
-      >
-        <Document file={file}>
-          <Page scale={0.7} pageNumber={1} />
-        </Document>
+          <Document file={file}>
+            <Page scale={0.4} pageNumber={1} />
+          </Document>
+        </div>
       </div>
     </div>
   );
