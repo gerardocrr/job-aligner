@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Dropzone } from "../components/Dropzone";
 import { FeedbackAI } from "../components/FeedbackAI";
 import { DescriptionJob } from "../components/DescriptionJob";
@@ -20,16 +20,15 @@ export function MainPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const options = {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
-          "x-rapidapi-host": "linkedin-data-api.p.rapidapi.com",
-        },
-      };
+      // const options = {
+      //   method: "GET",
+      //   headers: {
+      //     "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
+      //     "x-rapidapi-host": "linkedin-data-api.p.rapidapi.com",
+      //   },
+      // };
       const response = await fetch(
-        `https://linkedin-data-api.p.rapidapi.com/get-job-details?id=${params.id}`,
-        options
+        `https://api-linkedin.vercel.app/api/jobs/${params.id}`
       );
       const data = await response.json();
       setDataJob(data);
@@ -39,7 +38,7 @@ export function MainPage() {
   }, []);
 
   const handleFetchFeedback = async () => {
-    const dataJobText = `Title: ${dataJob.data.title}. Description: ${dataJob.data.description}.`;
+    const dataJobText = `Title: ${dataJob.title}. Description: ${dataJob.description}.`;
     const response = await getFeedback(dataCV, dataJobText);
     const partes = response.split("\n\n");
     setFeedback(partes);

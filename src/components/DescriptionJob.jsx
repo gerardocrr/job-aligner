@@ -39,22 +39,22 @@ export function DescriptionJob({ dataJob, isLoading }) {
       ) : (
         <div className="flex mb-5">
           <div className="mt-1 min-w-16 max-w-16">
-            <img
+            {/* <img
               className="rounded-md"
               src={dataJob.data.company.logo}
               alt="company logo"
               width={"150px"}
-            />
+            /> */}
           </div>
           <div className="mx-5">
             <div className="mb-5">
-              <p>Título: {dataJob.data.title}</p>
-              <p>Empresa: {dataJob.data.company.name}</p>
-              <p>Ubicación: {dataJob.data.location}</p>
+              <p>Título: {dataJob.title}</p>
+              <p>Empresa: {dataJob.company}</p>
+              <p>Ubicación: {dataJob.location}</p>
             </div>
             <div>
               <p>Descripción:</p>
-              <p>{dataJob.data.description}</p>
+              <p>{dataJob.description}</p>
             </div>
           </div>
         </div>
