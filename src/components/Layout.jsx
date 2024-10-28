@@ -26,9 +26,7 @@ export function Layout({ children }) {
       </header>
 
       <main className="flex-grow flex p-4">
-        <div className="flex-grow flex justify-center items-center z-10">
-          {children}
-        </div>
+        <div className="flex-grow flex justify-center z-10">{children}</div>
       </main>
 
       <footer className="relative z-10 text-black p-4">

@@ -33,7 +33,7 @@ export function JobSearch() {
   };
 
   return (
-    <div className="flex flex-col h-96 justify-between container mx-auto">
+    <div className="flex flex-col justify-between container mx-auto">
       <main className="mb-auto flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-8">
           Ingresa la URL del empleo de linkedin
