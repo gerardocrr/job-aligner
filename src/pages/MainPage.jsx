@@ -4,7 +4,6 @@ import { Dropzone } from "../components/Dropzone";
 import { FeedbackAI } from "../components/FeedbackAI";
 import { DescriptionJob } from "../components/DescriptionJob";
 import { getFeedback } from "../lib/ai-response";
-import dataJobs from "./dataJobs.json";
 import { toast } from "sonner";
 
 export function MainPage() {
