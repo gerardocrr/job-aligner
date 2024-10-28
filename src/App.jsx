@@ -3,7 +3,6 @@ import { JobSearch } from "./pages/JobSearch";
 import { MainPage } from "./pages/MainPage";
 import { Toaster } from "sonner";
 import { Layout } from "./components/Layout";
-import "./App.css";
 
 function App() {
   return (
