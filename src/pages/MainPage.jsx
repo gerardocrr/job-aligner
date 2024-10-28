@@ -77,7 +77,7 @@ export function MainPage() {
         }`}
       >
         <DescriptionJob dataJob={dataJob} isLoading={isLoading} />
-        <div className="flex justify-end mt-5">
+        <div className={`flex justify-end mt-5 ${isLoading ? "hidden" : ""}`}>
           <button
             className="h-10 rounded-md text-black mx-10 hover:underline"
             onClick={() => {
