@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { pdfjs, Document, Page } from "react-pdf";
+import { getFeedback } from "../lib/ai-response";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 
@@ -9,8 +10,16 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url
 ).toString();
 
-export function Dropzone({ file, setFile, setDataCV, setFeedback }) {
+export function Dropzone({
+  setFeedback,
+  setIsVisibleCV,
+  setIsVisibleFeedback,
+  dataJob,
+  setIsLoadingFeedback,
+}) {
   const [isVisible, setIsVisible] = useState(true);
+  const [file, setFile] = useState();
+  const [dataCV, setDataCV] = useState();
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles[0]) {
       setFile(acceptedFiles[0]);
@@ -55,6 +64,14 @@ export function Dropzone({ file, setFile, setDataCV, setFeedback }) {
     reader.readAsArrayBuffer(file);
   }
 
+  const handleFetchFeedback = async () => {
+    const dataJobText = `Titulo: ${dataJob.data.title}. Descripcion: ${dataJob.data.description}.`;
+    const response = await getFeedback(dataCV, dataJobText);
+    const partes = response.split("\n\n");
+    setFeedback(partes);
+    setIsLoadingFeedback(false);
+  };
+
   return (
     <div className="">
       <h1 className="font-bold mb-5">Suba su CV</h1>
@@ -72,7 +89,7 @@ export function Dropzone({ file, setFile, setDataCV, setFeedback }) {
           <div
             {...getRootProps({
               className:
-                "h-full flex items-center justify-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100",
+                "h-3/4 flex items-center justify-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100",
             })}
           >
             <input {...getInputProps()} />
@@ -109,6 +126,29 @@ export function Dropzone({ file, setFile, setDataCV, setFeedback }) {
             <Page scale={0.4} pageNumber={1} />
           </Document>
         </div>
+      </div>
+      <div
+        className={`${isVisible ? "hidden" : "block"} flex justify-end mt-10`}
+      >
+        <button
+          className="h-10 rounded-md text-black mx-10 hover:underline"
+          onClick={() => {
+            setIsVisibleDetails(false);
+            setIsVisibleCV(true);
+          }}
+        >
+          Ingresar otro empleo
+        </button>
+        <button
+          className="h-10 px-6 rounded-md bg-black text-white hover:bg-gray-800"
+          onClick={() => {
+            setIsVisibleCV(false);
+            setIsVisibleFeedback(true);
+            handleFetchFeedback();
+          }}
+        >
+          Continuar
+        </button>
       </div>
     </div>
   );
