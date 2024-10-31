@@ -72,15 +72,12 @@ export function MainPage() {
       >
         <DescriptionJob dataJob={dataJob} isLoading={isLoading} />
         <div className={`flex justify-end mt-5 ${isLoading ? "hidden" : ""}`}>
-          <button
+          <Link
+            to={"/"}
             className="h-10 rounded-md text-black mx-10 hover:underline"
-            onClick={() => {
-              setIsVisibleDetails(false);
-              setIsVisibleCV(true);
-            }}
           >
             Ingresar otro empleo
-          </button>
+          </Link>
           <button
             className="h-10 px-6 rounded-md bg-black text-white hover:bg-gray-800"
             onClick={() => {
@@ -112,15 +109,12 @@ export function MainPage() {
       >
         <FeedbackAI isLoadingFeedback={isLoadingFeedback} feedback={feedback} />
         <div className="flex justify-end mt-5">
-          <button
+          <Link
+            to={"/"}
             className="h-10 rounded-md text-black mx-10 hover:underline"
-            onClick={() => {
-              setIsVisibleDetails(false);
-              setIsVisibleCV(true);
-            }}
           >
             Ingresar otro empleo
-          </button>
+          </Link>
         </div>
       </div>
     </div>

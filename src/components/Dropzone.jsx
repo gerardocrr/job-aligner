@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { pdfjs, Document, Page } from "react-pdf";
 import { getFeedback } from "../lib/ai-response";
+import { Link } from "react-router-dom";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 
@@ -130,15 +131,12 @@ export function Dropzone({
       <div
         className={`${isVisible ? "hidden" : "block"} flex justify-end mt-10`}
       >
-        <button
+        <Link
+          to={"/"}
           className="h-10 rounded-md text-black mx-10 hover:underline"
-          onClick={() => {
-            setIsVisibleDetails(false);
-            setIsVisibleCV(true);
-          }}
         >
           Ingresar otro empleo
-        </button>
+        </Link>
         <button
           className="h-10 px-6 rounded-md bg-black text-white hover:bg-gray-800"
           onClick={() => {
