@@ -101,7 +101,7 @@ export function MainPage() {
           setFeedback={setFeedback}
           setIsVisibleCV={setIsVisibleCV}
           setIsVisibleFeedback={setIsVisibleFeedback}
-          dataJob={dataJobs}
+          dataJob={dataJob}
           setIsLoadingFeedback={setIsLoadingFeedback}
         />
       </div>
