@@ -3,6 +3,7 @@ import { JobSearch } from "./pages/JobSearch";
 import { MainPage } from "./pages/MainPage";
 import { Toaster } from "sonner";
 import { Layout } from "./components/Layout";
+import { NotFound } from "./components/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route index element={<JobSearch />}></Route>
             <Route path="/description/:id" element={<MainPage />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </Layout>
       </BrowserRouter>
