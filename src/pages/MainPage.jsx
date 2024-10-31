@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { Dropzone } from "../components/Dropzone";
 import { FeedbackAI } from "../components/FeedbackAI";
 import { DescriptionJob } from "../components/DescriptionJob";
-import { getFeedback } from "../lib/ai-response";
 import { toast } from "sonner";
 
 export function MainPage() {
@@ -11,8 +10,6 @@ export function MainPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingFeedback, setIsLoadingFeedback] = useState(true);
   const [dataJob, setDataJob] = useState({});
-  const [file, setFile] = useState();
-  const [dataCV, setDataCV] = useState();
   const [feedback, setFeedback] = useState([]);
   const [isVisibleDetails, setIsVisibleDetails] = useState(true);
   const [isVisibleCV, setIsVisibleCV] = useState(false);
@@ -20,30 +17,28 @@ export function MainPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // const options = {
-      //   method: "GET",
-      //   headers: {
-      //     "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
-      //     "x-rapidapi-host": "linkedin-data-api.p.rapidapi.com",
-      //   },
-      // };
+      const options = {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
+          "x-rapidapi-host": "linkedin-api8.p.rapidapi.com",
+        },
+      };
       const response = await fetch(
-        `https://api-linkedin.vercel.app/api/jobs/${params.id}`
+        `https://linkedin-api8.p.rapidapi.com/get-job-details?id=${params.id}`,
+        options
       );
       const data = await response.json();
-      setDataJob(data);
-      setIsLoading(false);
+      if (data.success) {
+        setDataJob(data);
+        setIsLoading(false);
+        toast.success("Datos cargados correctamente.");
+      } else {
+        toast.error("Ha ocurrido un error, vuelve a intentarlo.");
+      }
     };
     fetchData();
   }, []);
-
-  const handleFetchFeedback = async () => {
-    const dataJobText = `Title: ${dataJob.title}. Description: ${dataJob.description}.`;
-    const response = await getFeedback(dataCV, dataJobText);
-    const partes = response.split("\n\n");
-    setFeedback(partes);
-    setIsLoadingFeedback(false);
-  };
 
   return (
     <div className="container">
@@ -103,32 +98,12 @@ export function MainPage() {
         }`}
       >
         <Dropzone
-          file={file}
-          setFile={setFile}
-          setDataCV={setDataCV}
           setFeedback={setFeedback}
+          setIsVisibleCV={setIsVisibleCV}
+          setIsVisibleFeedback={setIsVisibleFeedback}
+          dataJob={dataJobs}
+          setIsLoadingFeedback={setIsLoadingFeedback}
         />
-        <div className="flex justify-end mt-10">
-          <button
-            className="h-10 rounded-md text-black mx-10 hover:underline"
-            onClick={() => {
-              setIsVisibleDetails(false);
-              setIsVisibleCV(true);
-            }}
-          >
-            Ingresar otro empleo
-          </button>
-          <button
-            className="h-10 px-6 rounded-md bg-black text-white hover:bg-gray-800"
-            onClick={() => {
-              setIsVisibleCV(false);
-              setIsVisibleFeedback(true);
-              handleFetchFeedback();
-            }}
-          >
-            Continuar
-          </button>
-        </div>
       </div>
       <div
         className={`bg-white p-5 border shadow rounded-md ${
