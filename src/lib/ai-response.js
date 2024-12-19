@@ -26,7 +26,7 @@ export async function getFeedback(dataCV, dataJob) {
   Proporciona la información sin encabezados ni enumeraciones, solo separalo por parrafos y que cada punto tenga un maximo de 50 palabras.`;
 
   const { text } = await generateText({
-    model: perplexity("llama-3.1-sonar-large-128k-online"),
+    model: perplexity("llama-3.1-sonar-huge-128k-online	"),
     prompt: prompt,
     maxTokens: 1000,
     temperature: 0.75,
