@@ -10,7 +10,10 @@ Esta plataforma no solo ahorra tiempo a los candidatos al ofrecerles una evaluac
 https://job-aligner-ai.vercel.app/
 
 ## Imagenes
-![913_1x_shots_so](https://github.com/user-attachments/assets/a9f84ffb-24a5-4c28-aff8-4720d1007da8)
-![79_1x_shots_so](https://github.com/user-attachments/assets/54c03864-a699-4ca8-ab5c-0ffc4e74f312)
+![image](https://github.com/user-attachments/assets/b3b48317-8656-4444-a514-f8e8a4ad14ec)
 
-https://github.com/user-attachments/assets/3c276d70-ce7d-426b-a68b-b6d81400cc98
+![image](https://github.com/user-attachments/assets/9650f954-93a5-483c-bd69-631b4de6f03e)
+
+![image](https://github.com/user-attachments/assets/0a915e43-4cf0-4e06-837d-b405860f3364)
+
+![image](https://github.com/user-attachments/assets/50f4baf1-e02c-415d-8e51-635e5836f2bd)
