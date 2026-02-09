@@ -21,11 +21,11 @@ export function MainPage() {
         method: "GET",
         headers: {
           "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
-          "x-rapidapi-host": "linkedin-api8.p.rapidapi.com",
+          "x-rapidapi-host": "jsearch.p.rapidapi.com",
         },
       };
       const response = await fetch(
-        `https://linkedin-api8.p.rapidapi.com/get-job-details?id=${params.id}`,
+        `https://jsearch.p.rapidapi.com/job-details?job_id=${params.id}`,
         options
       );
       const data = await response.json();
