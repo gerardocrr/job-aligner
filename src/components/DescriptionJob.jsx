@@ -41,7 +41,7 @@ export function DescriptionJob({ dataJob, isLoading }) {
           <div className="mt-1 min-w-16 max-w-16">
             <img
               className="rounded-md"
-              src={dataJob.data.[0].employer_logo}
+              src={dataJob.data.0.employer_logo}
               alt="company logo"
               width={"150px"}
             />
