@@ -17,19 +17,18 @@ export function MainPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const options = {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
-          "x-rapidapi-host": "jsearch.p.rapidapi.com",
-        },
-      };
+      //const options = {
+      //  method: "GET",
+      //  headers: {
+      //    "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
+      //    "x-rapidapi-host": "jsearch.p.rapidapi.com",
+      //  },
+      //};
       const response = await fetch(
-        `https://jsearch.p.rapidapi.com/job-details?job_id=${params.id}`,
-        options
+        `https://api-linkedin.vercel.app/api/jobs/${params.id}`,
       );
       const data = await response.json();
-      if (data.success) {
+      if (data) {
         setDataJob(data);
         setIsLoading(false);
         toast.success("Datos cargados correctamente.");
