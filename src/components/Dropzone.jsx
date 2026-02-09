@@ -66,7 +66,7 @@ export function Dropzone({
   }
 
   const handleFetchFeedback = async () => {
-    const dataJobText = `Titulo: ${dataJob.data.title}. Descripcion: ${dataJob.data.description}.`;
+    const dataJobText = `Titulo: ${dataJob.title}. Descripcion: ${dataJob.description}.`;
     const response = await getFeedback(dataCV, dataJobText);
     const partes = response.split("\n\n");
     setFeedback(partes);
