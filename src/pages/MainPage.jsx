@@ -35,6 +35,7 @@ export function MainPage() {
         toast.success("Datos cargados correctamente.");
       } else {
         toast.error("Ha ocurrido un error, vuelve a intentarlo.");
+        console.log(data);
       }
     };
     fetchData();
